@@ -1,0 +1,218 @@
+<section class="hero-section" data-section-id="{{ section.id }}">
+  <div class="hero-section__container">
+    <div
+      class="hero-section__content"
+      {% if section.settings.content_bg_image != blank %}
+        style="background-image: url('{{ section.settings.content_bg_image | image_url }}');"
+      {% else %}
+        style="background-image: url('{{ 'hero-image-1.png' | asset_url }}');"
+      {% endif %}
+    >
+      {%- comment -%} Main Heading {%- endcomment -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="hero-section__heading poppins-bold">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- comment -%} Description Text {%- endcomment -%}
+      {%- if section.settings.description != blank -%}
+        <p class="hero-section__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- comment -%} CTA Button {%- endcomment -%}
+      {%- if section.settings.button_text != blank and section.settings.button_url != blank -%}
+        <a href="{{ section.settings.button_url }}" class="hero-section__button inter-bold">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+    <div class="hero-section__image-wrapper">
+      {%- if section.settings.hero_image != blank -%}
+        <img
+          src="{{ section.settings.hero_image | image_url }}"
+          alt="{{ section.settings.image_alt | default: 'Hero image' }}"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.height }}"
+          loading="eager"
+          class="hero-section__image"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'hero-image.png' | asset_url }}"
+          alt="Furniture display"
+          loading="eager"
+          width="1536"
+          height="1024"
+          class="hero-section__image"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    display: flex;
+    height: 100vh;
+  }
+
+  .hero-section__container {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Content Area */
+  .hero-section__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    align-items: center;
+    padding: 32px 16px;
+  }
+
+  /* Heading */
+  .hero-section__heading {
+    font-size: 32px;
+    color: #343434;
+    line-height: 120%;
+    margin-bottom: 19px;
+    text-align: center;
+  }
+
+  /* Description */
+  .hero-section__description {
+    font-size: 14px;
+    color: #000;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  /* Button */
+  .hero-section__button {
+    display: inline-block;
+    padding: 16px 32px;
+    margin-top: 52px;
+    background-color: #c19687;
+    color: #fff;
+    border-radius: 1000px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  /* Image Wrapper */
+  .hero-section__image-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero-section__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: right;
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+    }
+
+    .hero-section__container {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .hero-section__content {
+      display: none;
+    }
+
+    .hero-section__image-wrapper {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-section__container {
+    }
+
+    .hero-section__content {
+      display: flex;
+      padding: 48px;
+      align-items: start;
+      width: 50%;
+    }
+
+    .hero-section__image-wrapper {
+      width: 50%;
+    }
+
+    .hero-section__heading {
+      font-size: 48px;
+      text-align: start;
+    }
+
+    .hero-section__description {
+      font-size: 18px;
+      text-align: start;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Safe, Playful Furniture for Growing Kids"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Beautifully crafted, child-safe furniture that supports play, learning, and everyday life, trusted by parents, loved by kids."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore collection"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_bg_image",
+      "label": "Hero Image (left side)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image (right side)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Little BoLiving"
+    }
+  ]
+}
+{% endschema %}

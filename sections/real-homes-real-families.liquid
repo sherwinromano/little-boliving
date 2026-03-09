@@ -1,0 +1,844 @@
+<section class="real-families" data-section-id="{{ section.id }}">
+  <div class="real-families__richtext">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="real-families__heading poppins-bold">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <h4 class="real-families__subheading">{{ section.settings.subheading }}</h4>
+    {%- endif -%}
+  </div>
+  <div class="real-families__container">
+    {%- if section.blocks.size > 0 -%}
+      <div class="real-families__wrapper">
+        <div class="real-families__slides-container">
+          {%- for block in section.blocks -%}
+            <div
+              class="real-families__slide{% if forloop.first %} active{% endif %}"
+              data-slide-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              <div class="testimonial-img">
+                <div class="real-families__image-main">
+                  {%- if section.settings.main_image != blank -%}
+                    <img
+                      src="{{ section.settings.main_image | image_url }}"
+                      alt="{{ section.settings.name_top | default: 'Customer testimonial' }}"
+                      width="{{ section.settings.main_image.width }}"
+                      height="{{ section.settings.main_image.height }}"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    <img
+                      src="{{ 'room-img-3.png' | asset_url }}"
+                      alt="Image of a female child"
+                      width="880"
+                      height="1176"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+
+                <div class="real-families__image-secondary">
+                  {%- if section.settings.secondary_image != blank -%}
+                    <img
+                      src="{{ section.settings.secondary_image | image_url }}"
+                      alt="{{ section.settings.name_bottom | default: 'Customer testimonial' }}"
+                      width="{{ section.settings.secondary_image.width }}"
+                      height="{{ section.settings.secondary_image.height }}"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    <img
+                      src="{{ 'real-homes-img-1.png' | asset_url }}"
+                      alt="Image of a female child"
+                      width="880"
+                      height="1174"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="testimonial-wrapper">
+                <button class="real-families__arrow real-families__arrow--prev" aria-label="Previous testimonial">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </button>
+
+                <div class="real-families__card real-families__card--top">
+                  <div class="real-families__card-content">
+                    {%- if block.settings.avatar_top != blank -%}
+                      <div class="real-families__avatar">
+                        <img
+                          src="{{ block.settings.avatar_top | image_url }}"
+                          alt="{{ block.settings.name_top }}"
+                          width="60"
+                          height="60"
+                          loading="lazy"
+                        >
+                      </div>
+                    {% else %}
+                      <div class="real-families__avatar">
+                        <img
+                          src="{{ 'anna-smith.png' | asset_url }}"
+                          alt="Anna Smith photo"
+                          width="540"
+                          height="360"
+                          loading="lazy"
+                        >
+                      </div>
+                    {%- endif -%}
+
+                    <div class="real-families__card-text">
+                      {%- if block.settings.name_top != blank -%}
+                        <h3 class="real-families__name inter-bold">{{ block.settings.name_top }}</h3>
+                      {%- endif -%}
+
+                      <div class="real-families__stars">
+                        {%- assign rating_top = block.settings.rating_top | default: 5 -%}
+                        {%- for i in (1..5) -%}
+                          {%- if i <= rating_top -%}
+                            <span class="real-families__star real-families__star--filled">★</span>
+                          {%- else -%}
+                            <span class="real-families__star real-families__star--empty">★</span>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+
+                      {%- if block.settings.testimonial_top != blank -%}
+                        <p class="real-families__testimonial">{{ block.settings.testimonial_top }}</p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+                <div class="real-families__card real-families__card--bottom">
+                  <div class="real-families__card-content">
+                    {%- if block.settings.avatar_bottom != blank -%}
+                      <div class="real-families__avatar">
+                        <img
+                          src="{{ block.settings.avatar_bottom | image_url }}"
+                          alt="{{ block.settings.name_bottom }}"
+                          width="60"
+                          height="60"
+                          loading="lazy"
+                        >
+                      </div>
+                    {% else %}
+                      <div class="real-families__avatar">
+                        <img
+                          src="{{ 'rey-smith.png' | asset_url }}"
+                          alt="Rey Smith photo"
+                          width="540"
+                          height="360"
+                          loading="lazy"
+                        >
+                      </div>
+                    {%- endif -%}
+
+                    <div class="real-families__card-text">
+                      {%- if block.settings.name_bottom != blank -%}
+                        <h3 class="real-families__name inter-bold">{{ block.settings.name_bottom }}</h3>
+                      {%- endif -%}
+
+                      <div class="real-families__stars">
+                        {%- assign rating_bottom = block.settings.rating_bottom | default: 5 -%}
+                        {%- for i in (1..5) -%}
+                          {%- if i <= rating_bottom -%}
+                            <span class="real-families__star real-families__star--filled">★</span>
+                          {%- else -%}
+                            <span class="real-families__star real-families__star--empty">★</span>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+
+                      {%- if block.settings.testimonial_bottom != blank -%}
+                        <p class="real-families__testimonial">{{ block.settings.testimonial_bottom }}</p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+                <button class="real-families__arrow real-families__arrow--next" aria-label="Next testimonial">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Pagination Dots {%- endcomment -%}
+        <div class="real-families__dots">
+          {%- for block in section.blocks -%}
+            <span
+              class="real-families__dot{% if forloop.first %} active{% endif %}"
+              data-dot-index="{{ forloop.index0 }}"
+            ></span>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Navigation Arrows {%- endcomment -%}
+        <div class="nav-btns">
+          <button class="real-families__arrow real-families__arrow--prev" aria-label="Previous testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="real-families__arrow real-families__arrow--next" aria-label="Next testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .real-families {
+    padding: 60px 0 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .real-families__container {
+    max-width: 1376px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .real-families__richtext {
+    margin-bottom: 32px;
+    padding-inline: 16px;
+  }
+
+  .real-families__heading {
+    font-size: 32px;
+    color: #343434;
+    text-align: center;
+    margin: 0 0 16px 0;
+  }
+
+  .real-families__subheading {
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  /* Wrapper */
+  .real-families__wrapper {
+    position: relative;
+  }
+
+  /* Slides Container */
+  .real-families__slides-container {
+    position: relative;
+  }
+
+  /* Slide */
+  .real-families__slide {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .real-families__slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+  }
+
+  .testimonial-img {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  /* Images */
+  .real-families__image-main {
+    display: flex;
+    border-radius: 32px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .real-families__image-main img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .real-families__image-secondary {
+    display: none;
+  }
+
+  .testimonial-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .testimonial-wrapper > .real-families__arrow {
+    display: none;
+  }
+
+  /* Testimonial Cards */
+  .real-families__card {
+    background-color: #ffffff99;
+    border-radius: 20px;
+    padding: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+
+  .real-families__card-content {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  /* Avatar */
+  .real-families__avatar {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .real-families__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Card Text */
+  .real-families__card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .real-families__name {
+    font-size: 1rem;
+    color: #000000;
+  }
+
+  /* Stars */
+  .real-families__stars {
+    display: flex;
+    gap: 8px;
+  }
+
+  .real-families__star {
+    font-size: 18px;
+  }
+
+  .real-families__star--filled {
+    color: #feb34a;
+  }
+
+  .real-families__star--empty {
+    color: #d3d3d3;
+  }
+
+  /* Testimonial Text */
+  .real-families__testimonial {
+    font-size: 14px;
+    color: #575757;
+  }
+
+  /* Pagination Dots */
+  .real-families__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .real-families__dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #f3e8df;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+
+  .real-families__dot.active {
+    opacity: 1;
+    background-color: #c19687;
+    border: 1px solid #757575;
+  }
+
+  /* Navigation Arrows - Mobile/Tablet */
+  .real-families__arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #00000033;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: background-color 0.3s ease;
+  }
+
+  .real-families__arrow:hover {
+    background-color: #00000066;
+  }
+
+  .real-families__arrow svg {
+    color: #fff;
+  }
+
+  .nav-btns {
+    display: flex;
+    align-self: center;
+    gap: 1rem;
+    margin-top: 32px;
+  }
+
+  /* Mobile/Tablet Navigation Container */
+  .real-families__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .real-families__arrow--prev,
+  .real-families__arrow--next {
+    display: inline-flex;
+  }
+
+  /* Create a flex container for arrows on mobile/tablet */
+  @media (max-width: 1023px) {
+    .real-families__wrapper::after {
+      content: '';
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      order: 3;
+      margin-top: 24px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .real-families {
+      padding: 80px 0 100px;
+    }
+
+    .real-families__container {
+      padding: 0 32px;
+    }
+
+    .real-families__richtext {
+      margin-bottom: 40px;
+    }
+
+    .real-families__heading {
+      font-size: 48px;
+      margin: 0 0 16px 0;
+    }
+
+    .real-families__subheading {
+      font-size: 16px;
+    }
+
+    /* UPDATED: Add min-height and use opacity transition for desktop */
+    .real-families__slides-container {
+      min-height: 776px;
+    }
+
+    .real-families__slide {
+      max-width: 100%;
+      gap: 20px;
+      position: absolute;
+      left: 0;
+    }
+
+    /* UPDATED: Use opacity instead of display none/grid */
+    .real-families__slide:not(.active) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .real-families__slide.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    /* Main Image - Left Side */
+
+    .real-families__image-main,
+    .real-families__image-secondary {
+      width: 50%;
+    }
+
+    .real-families__image-main {
+      margin-bottom: 0;
+      height: 100%;
+    }
+
+    .real-families__image-main img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Secondary Image - Right Side */
+    .real-families__image-secondary {
+      display: flex;
+      border-radius: 32px;
+      overflow: hidden;
+      transform: translateY(50px);
+    }
+
+    .real-families__image-secondary img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .real-families__card {
+      border-radius: 32px;
+      padding: 32px;
+      min-width: 500px;
+    }
+
+    .real-families__avatar {
+      width: 64px;
+      height: 64px;
+    }
+
+    .real-families__name {
+      font-size: 18px;
+    }
+
+    .real-families__testimonial {
+      font-size: 18px;
+    }
+
+    .real-families__dots {
+      margin-top: 80px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .real-families {
+      padding: 100px 0 120px;
+    }
+
+    .real-families__container {
+      padding: 0 40px;
+    }
+
+    .real-families__richtext {
+      margin-bottom: 48px;
+    }
+
+    .real-families__heading {
+      font-size: 52px;
+      margin: 0 0 16px 0;
+    }
+
+    .real-families__subheading {
+      font-size: 18px;
+    }
+
+    .real-families__slide {
+      max-width: 1080px;
+    }
+
+    .testimonial-wrapper {
+      margin-top: 3rem;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .real-families__image-main,
+    .real-families__image-secondary {
+      max-height: 705px;
+      width: 50%;
+    }
+
+    .real-families__avatar {
+      width: 72px;
+      height: 72px;
+    }
+
+    .real-families__card-content {
+      gap: 20px;
+    }
+
+    .real-families__stars {
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .real-families__dots {
+      margin-top: 50px;
+    }
+
+    /* Desktop: Arrows positioned absolutely on sides */
+    .real-families__arrow--prev {
+      position: absolute;
+      left: -80px;
+      top: 82%;
+      transform: translateY(-50%);
+      margin: 0;
+    }
+
+    .real-families__arrow--next {
+      position: absolute;
+      right: -80px;
+      top: 82%;
+      transform: translateY(-50%);
+      margin: 0;
+    }
+
+    .real-families__arrow {
+      display: none;
+    }
+
+    .testimonial-wrapper > .real-families__arrow {
+      display: inline-flex;
+      top: 50%;
+    }
+
+    .real-families__wrapper::after {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const sections = document.querySelectorAll('.real-families');
+
+    sections.forEach((section) => {
+      const slides = section.querySelectorAll('.real-families__slide');
+      const dots = section.querySelectorAll('.real-families__dot');
+      const prevBtns = section.querySelectorAll('.real-families__arrow--prev');
+      const nextBtns = section.querySelectorAll('.real-families__arrow--next');
+
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+
+      if (totalSlides <= 1) {
+        // Hide navigation if only one slide
+        prevBtns.forEach((btn) => (btn.style.display = 'none'));
+        nextBtns.forEach((btn) => (btn.style.display = 'none'));
+        dots.forEach((dot) => (dot.style.display = 'none'));
+        return;
+      }
+
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove('active'));
+        dots.forEach((dot) => dot.classList.remove('active'));
+
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      }
+
+      // Event listeners for arrows
+      nextBtns.forEach((btn) => {
+        btn.addEventListener('click', nextSlide);
+      });
+
+      prevBtns.forEach((btn) => {
+        btn.addEventListener('click', prevSlide);
+      });
+
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          showSlide(currentSlide);
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Real Homes, Real Families",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real Homes, Real Families"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover honest reviews and real photos from families enjoying our furniture."
+    },
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Left Image",
+      "info": "Recommended: 880x1176px"
+    },
+    {
+      "type": "image_picker",
+      "id": "secondary_image",
+      "label": "Right Image",
+      "info": "Recommended: 880x1174px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_slide",
+      "name": "Testimonial Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Testimonial Card 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar_top",
+          "label": "Avatar Image",
+          "info": "Recommended: 80x80px"
+        },
+        {
+          "type": "text",
+          "id": "name_top",
+          "label": "Name",
+          "default": "Anna Smith"
+        },
+        {
+          "type": "range",
+          "id": "rating_top",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_top",
+          "label": "Testimonial",
+          "default": "Find the perfect furniture for every stage of your child's growth."
+        },
+        {
+          "type": "header",
+          "content": "Testimonial Card 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar_bottom",
+          "label": "Avatar Image",
+          "info": "Recommended: 80x80px"
+        },
+        {
+          "type": "text",
+          "id": "name_bottom",
+          "label": "Name",
+          "default": "Rey Smith"
+        },
+        {
+          "type": "range",
+          "id": "rating_bottom",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_bottom",
+          "label": "Testimonial",
+          "default": "Find the perfect furniture for every stage of your child's growth."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Real Homes, Real Families",
+      "category": "Little BoLiving",
+      "blocks": [
+        {
+          "type": "testimonial_slide",
+          "settings": {
+            "name_top": "Anna Smith",
+            "rating_top": 5,
+            "testimonial_top": "Find the perfect furniture for every stage of your child's growth.",
+            "name_bottom": "Rey Smith",
+            "rating_bottom": 5,
+            "testimonial_bottom": "Find the perfect furniture for every stage of your child's growth."
+          }
+        },
+        {
+          "type": "testimonial_slide",
+          "settings": {
+            "name_top": "Sarah Johnson",
+            "rating_top": 5,
+            "testimonial_top": "The quality is amazing and my kids absolutely love their new furniture!",
+            "name_bottom": "Mike Davis",
+            "rating_bottom": 4,
+            "testimonial_bottom": "Worth every penny. Sturdy, beautiful, and built to last."
+          }
+        },
+        {
+          "type": "testimonial_slide",
+          "settings": {
+            "name_top": "Emily Chen",
+            "rating_top": 5,
+            "testimonial_top": "Perfect for growing families. We couldn't be happier with our purchase!",
+            "name_bottom": "Lisa Martinez",
+            "rating_bottom": 5,
+            "testimonial_bottom": "Safe, stylish, and functional. Everything we were looking for."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

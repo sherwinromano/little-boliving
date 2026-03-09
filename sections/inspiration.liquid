@@ -1,0 +1,334 @@
+<section class="room-ideas" data-section-id="{{ section.id }}">
+  <div class="room-ideas__richtext">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="room-ideas__heading poppins-bold">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <h4 class="room-ideas__subheading">{{ section.settings.subheading }}</h4>
+    {%- endif -%}
+  </div>
+  <div class="room-ideas__container">
+    {%- if section.blocks.size > 0 -%}
+      <div class="room-ideas__grid">
+        {%- for block in section.blocks -%}
+          <div class="room-ideas__item room-ideas__item--{{ forloop.index }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <div class="room-ideas__image-wrapper">
+                <img
+                  src="{{ block.settings.image | image_url }}"
+                  alt="{{ block.settings.alt_text | default: 'Room inspiration' }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  loading="lazy"
+                  class="room-ideas__image"
+                >
+              </div>
+            {%- else -%}
+              <div class="room-ideas__image-wrapper">
+                <img
+                  src="{{ 'room-img-' | append: forloop.index | append: '.png' | asset_url }}"
+                  alt="Room inspiration {{ forloop.index }}"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  class="room-ideas__image"
+                >
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+  {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+    <div class="room-ideas__button-wrapper">
+      <a href="{{ section.settings.button_link }}" class="room-ideas__button inter-bold">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  {%- endif -%}
+</section>
+
+<style>
+  .room-ideas {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0 80px;
+  }
+
+  .room-ideas__richtext {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 16px;
+  }
+
+  /* Heading */
+  .room-ideas__heading {
+    font-size: 32px;
+    color: #343434;
+    text-align: center;
+    margin: 0 0 16px 0;
+  }
+
+  .room-ideas__subheading {
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .room-ideas__container {
+    max-width: 1376px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .room-ideas__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .room-ideas__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    height: 460px;
+    display: flex;
+  }
+
+  .room-ideas__image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .room-ideas__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .room-ideas__item:hover .room-ideas__image {
+    transform: scale(1.05);
+  }
+
+  .room-ideas__button-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+  }
+
+  .room-ideas__button {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #c19687;
+    border-radius: 1000px;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .room-ideas__button:hover {
+    background-color: #c89981;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 169, 145, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    .room-ideas {
+      padding: padding: 80px 0 100px;
+    }
+
+    .room-ideas__container {
+      padding: 0 32px;
+    }
+
+    .room-ideas__heading {
+      font-size: 48px;
+      margin: 0 0 16px 0;
+    }
+
+    .room-ideas__grid {
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: 24px;
+      height: 719px;
+      gap: 20px;
+    }
+
+    .room-ideas__item {
+        height: auto;
+    }
+
+    .room-ideas__item--1 {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    .room-ideas__item--2 {
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+    }
+
+    .room-ideas__item--3 {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .room-ideas__item--4 {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .room-ideas__item--5 {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+
+
+  }
+
+  @media (min-width: 1024px) {
+    .room-ideas {
+      padding: 100px 0 120px;
+    }
+
+    .room-ideas__container {
+      padding: 0 40px;
+    }
+
+    .room-ideas__heading {
+      font-size: 52px;
+      margin: 0 0 16px 0;
+    }
+
+    .room-ideas__subheading {
+      font-size: 18px;
+    }
+
+    .room-ideas__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      height: 937px;
+    }
+
+    .room-ideas__item--1 {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    .room-ideas__item--2 {
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+    }
+
+    .room-ideas__item--3 {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .room-ideas__item--4 {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .room-ideas__item--5 {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+
+    .room-ideas__button-wrapper {
+      margin-top: 48px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Inspiration & Room Ideas",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Inspiration & Room Ideas"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Inspire, play, and grow! Explore fun, functional furniture and creative room ideas for every kid's space."
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "info": "Leave empty if button should do nothing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "room_image",
+      "name": "Room Image",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image Alt Text",
+          "info": "Describe the image for accessibility"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspiration & Room Ideas",
+      "category": "Little BoLiving",
+      "blocks": [
+        {
+          "type": "room_image"
+        },
+        {
+          "type": "room_image"
+        },
+        {
+          "type": "room_image"
+        },
+        {
+          "type": "room_image"
+        },
+        {
+          "type": "room_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

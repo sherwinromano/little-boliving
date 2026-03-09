@@ -1,0 +1,336 @@
+/** Critical CSS for the theme. This file is included on every page. */
+
+/* Reset styles inspired by https://www.joshwcomeau.com/css/custom-css-reset/ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter-Regular", sans-serif;
+  font-weight: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100svh;
+}
+
+html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
+  overflow: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  border-radius: var(--style-border-radius-inputs);
+}
+
+select {
+  background-color: var(--color-background);
+  color: currentcolor;
+}
+
+dialog {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+p {
+  text-wrap: pretty;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p:empty {
+  display: none;
+}
+
+:is(p, h1, h2, h3, h4, h5, h6):first-child,
+:empty:first-child + :where(p, h1, h2, h3, h4, h5, h6) {
+  margin-block-start: 0;
+}
+
+:is(p, h1, h2, h3, h4, h5, h6):last-child,
+:where(p, h1, h2, h3, h4, h5, h6) + :has(+ :empty:last-child) {
+  margin-block-end: 0;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src:
+    url("/assets/Poppins-Bold.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0959/3212/1428/files/Poppins-Bold.woff2?v=1770628023")
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+  src:
+    url("/assets/Inter-Regular.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0959/3212/1428/files/Inter-Regular.woff2?v=1770628024")
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  src:
+    url("/assets/Inter-Bold.woff2") format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0959/3212/1428/files/Inter-Bold.woff2?v=1770628025")
+      format("woff2");
+}
+
+.poppins-bold {
+  font-family: "Poppins-Bold", sans-serif;
+}
+
+.inter-bold {
+  font-family: "Inter-Bold", sans-serif;
+}
+
+/** Theme styles below */
+body {
+  font-family: var(--font-primary--family);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/** Section layout utilities */
+
+/**
+ * Setup a grid that enables both full-width and constrained layouts
+ * depending on the class of the child elements.
+ *
+ * By default, a minimum content margin is set on the left and right
+ * sides of the section and the content is centered in the viewport to
+ * not exceed the maximum page width.
+ *
+ * When a child element is given the `full-width` class, it will span
+ * the entire viewport.
+ */
+.shopify-section {
+  --content-width: min(
+    calc(var(--page-width) - var(--page-margin) * 2),
+    calc(100% - var(--page-margin) * 2)
+  );
+  --content-margin: minmax(var(--page-margin), 1fr);
+  --content-grid: var(--content-margin) var(--content-width)
+    var(--content-margin);
+
+  /* This is required to make <img> elements work as background images */
+  position: relative;
+  grid-template-columns: var(--content-grid);
+  display: block;
+  width: 100%;
+}
+
+/* Child elements, by default, are constrained to the central column of the grid. */
+.shopify-section > * {
+  grid-column: 2;
+}
+
+/* Child elements that use the full-width utility class span the entire viewport. */
+.shopify-section > .full-width {
+  grid-column: 1 / -1;
+}
+
+.page-content {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-content--regular {
+  padding: 50px 20px 80px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header__title {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px 0;
+  color: #000;
+}
+
+.section-header__subtitle {
+  font-size: 14px;
+  color: #707070;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Regular Page Content (RTE) */
+.shopify-policy__title {
+  padding: 24px 0;
+}
+
+.rte {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 15px;
+  color: #707070;
+  padding-bottom: 24px;
+}
+
+.rte h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 50px 0 20px 0;
+  color: #000;
+  letter-spacing: 0.02em;
+}
+
+.rte h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 30px 0 15px 0;
+  color: #000;
+}
+
+.rte p {
+  margin: 0 0 20px 0;
+  line-height: 1.8;
+}
+
+.rte ul,
+.rte ol {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.rte li {
+  margin-bottom: 10px;
+}
+
+.rte a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.rte a:hover {
+  opacity: 0.7;
+}
+
+.rte strong {
+  font-weight: 500;
+}
+
+.rte table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.rte table th,
+.rte table td {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.rte table th {
+  background-color: #f8f8f8;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+.rte table td {
+  background-color: #fff;
+  line-height: 1.8;
+}
+
+.rte table td ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.rte table td li {
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .page-content {
+    padding: 40px 20px;
+  }
+
+  .page-content--regular {
+    padding: 40px 20px 60px;
+  }
+
+  .section-header__title {
+    font-size: 32px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .rte {
+    font-size: 14px;
+  }
+
+  .rte h2 {
+    font-size: 22px;
+  }
+
+  .rte h3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-header__title {
+    font-size: 28px;
+  }
+
+  .rte {
+    font-size: 13px;
+  }
+
+  .rte h2 {
+    font-size: 20px;
+  }
+
+  .rte h3 {
+    font-size: 16px;
+  }
+}

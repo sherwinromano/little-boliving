@@ -1,0 +1,305 @@
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="custom-footer" data-section-id="{{ section.id }}">
+  <div class="custom-footer__container">
+    <div class="custom-footer__logo-section">
+      {%- if section.settings.logo != blank -%}
+        <a href="{{ routes.root_url }}" class="custom-footer__logo">
+          <img
+            src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}"
+            alt="{{ shop.name }}"
+            width="{{ section.settings.logo_width }}"
+            height="{{ section.settings.logo_height }}"
+            loading="eager"
+            style="width: {{ section.settings.logo_width }}px; height: auto;"
+          >
+        </a>
+
+      {%- else -%}
+        <a href="{{ routes.root_url }}" class="custom-footer__logo">
+          <img
+            src="{{ 'logo.png' | asset_url }}"
+            alt="Little BoLiving icon"
+            width="{{ section.settings.logo_width }}"
+            height="{{ section.settings.logo_height }}"
+            loading="eager"
+            style="width: {{ section.settings.logo_width }}px; height: auto;"
+          >
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.tagline != blank -%}
+        <p class="custom-footer__tagline">{{ section.settings.tagline }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Navigation Menu {%- endcomment -%}
+    {%- if section.settings.menu.links.size > 0 -%}
+      <nav class="custom-footer__nav" aria-label="Footer navigation">
+        <ul class="custom-footer__nav-list">
+          {%- for link in section.settings.menu.links -%}
+            <li class="custom-footer__nav-item">
+              <a
+                href="{{ link.url }}"
+                class="custom-footer__nav-link"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    {%- comment -%} Social Media Icons {%- endcomment -%}
+    {%- if section.settings.show_social -%}
+      <div class="custom-footer__social">
+        <ul class="custom-footer__social-list">
+          {%- if section.settings.social_facebook != blank -%}
+            <li class="custom-footer__social-item">
+              <a
+                href="{{ section.settings.social_facebook }}"
+                class="custom-footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <img
+                  src="{{ 'facebook.svg' | asset_url }}"
+                  alt="Facebook logo"
+                  width="34"
+                  height="34"
+                  loading="eager"
+                >
+              </a>
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.social_instagram != blank -%}
+            <li class="custom-footer__social-item">
+              <a
+                href="{{ section.settings.social_instagram }}"
+                class="custom-footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <img
+                  src="{{ 'instagram.svg' | asset_url }}"
+                  alt="Instagram logo"
+                  width="34"
+                  height="34"
+                  loading="eager"
+                >
+              </a>
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.social_tiktok != blank -%}
+            <li class="custom-footer__social-item">
+              <a
+                href="{{ section.settings.social_tiktok }}"
+                class="custom-footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <img
+                  src="{{ 'tiktok.svg' | asset_url }}"
+                  alt="Tiktok logo"
+                  width="34"
+                  height="34"
+                  loading="eager"
+                >
+              </a>
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.social_linkedin != blank -%}
+            <li class="custom-footer__social-item">
+              <a
+                href="{{ section.settings.social_linkedin }}"
+                class="custom-footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <img
+                  src="{{ 'linked-in.svg' | asset_url }}"
+                  alt="LinkedIn logo"
+                  width="34"
+                  height="34"
+                  loading="eager"
+                >
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Bottom Bar with Legal Links {%- endcomment -%}
+  <div class="custom-footer__bottom">
+    {%- if section.settings.bottom_menu.links.size > 0 -%}
+      <nav class="custom-footer__bottom-nav" aria-label="Legal navigation">
+        <ul class="custom-footer__bottom-nav-list">
+          {%- for link in section.settings.bottom_menu.links -%}
+            <li class="custom-footer__bottom-nav-item">
+              <a
+                href="{{ link.url }}"
+                class="custom-footer__bottom-nav-link"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+  </div>
+</footer>
+
+<style>
+  .custom-footer__tagline {
+    font-size: {{ section.settings.tagline_font_size }}px;
+    color: #343434;
+  }
+
+  .custom-footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ section.settings.social_icon_size }}px;
+    height: {{ section.settings.social_icon_size }}px;
+    background-color: {{ section.settings.social_icon_bg }};
+    color: {{ section.settings.social_icon_color }};
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0;
+    transition: all 0.2s ease;
+  }
+
+  .custom-footer__social-link:hover {
+    background-color: {{ section.settings.social_icon_bg_hover }};
+    transform: translateY(-2px);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:general.footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo Width (px)",
+      "min": 40,
+      "max": 300,
+      "step": 5,
+      "default": 85,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo Height (px)",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "default": 55,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Tagline Settings"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Where Fun Meets Function!"
+    },
+    {
+      "type": "range",
+      "id": "tagline_font_size",
+      "label": "Tagline Font Size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline Color",
+      "default": "#5A5A5A"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Settings"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer Menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Social Media Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show Social Media Icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "social_linkedin",
+      "label": "LinkedIn URL"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar Settings"
+    },
+    {
+      "type": "link_list",
+      "id": "bottom_menu",
+      "label": "Bottom Menu (Legal Links)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "category": "Little BoLiving"
+    }
+  ]
+}
+{% endschema %}

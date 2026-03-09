@@ -1,0 +1,194 @@
+<section class="cozy-section" data-section-id="{{ section.id }}">
+  <div class="cozy-section__container">
+    <div
+      class="cozy-section__content"
+    >
+      <div class="cozy-text-wrapper">
+        {%- comment -%} Main Heading {%- endcomment -%}
+        {%- if section.settings.heading != blank -%}
+          <h1 class="cozy-section__heading poppins-bold">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+
+        {%- comment -%} Description Text {%- endcomment -%}
+        {%- if section.settings.description != blank -%}
+          <p class="cozy-section__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+
+        {%- comment -%} CTA Button {%- endcomment -%}
+        {%- if section.settings.button_text != blank and section.settings.button_url != blank -%}
+          <a href="{{ section.settings.button_url }}" class="cozy-section__button inter-bold">
+            {{ section.settings.button_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cozy-section {
+    display: flex;
+    padding: 60px 0 80px;
+    overflow: hidden;
+  }
+
+  .cozy-section__container {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 1376px;
+    padding-inline: 16px;
+    margin: 0 auto;
+  }
+
+  /* Content Area */
+  .cozy-section__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("{{ 'cozy-image-mobile.png' | asset_url }}");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    align-items: center;
+    padding: 120px 16px;
+  }
+
+  .cozy-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+  }
+
+  /* Heading */
+  .cozy-section__heading {
+    font-size: 32px;
+    color: #343434;
+    line-height: 120%;
+    margin-bottom: 19px;
+    text-align: center;
+  }
+
+  /* Description */
+  .cozy-section__description {
+    font-size: 16px;
+    color: #000;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  /* Button */
+  .cozy-section__button {
+    display: inline-block;
+    padding: 16px 32px;
+    margin-top: 52px;
+    background-color: #757575;
+    color: #fff;
+    border-radius: 1000px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .cozy-section__content {
+      background-image: url("{{ 'cozy-image-tab.png' | asset_url }}");
+    }
+  }
+
+  @media (min-width: 768px) {
+    .cozy-section {
+      padding: 80px 0 100px;
+    }
+
+    .cozy-section__content {
+      height: 486px;
+    }
+
+    .cozy-section__container {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .cozy-section__heading {
+      font-size: 48px;
+    }
+
+    .cozy-section__description {
+      font-size: 20px;
+    }
+
+    .cozy-section__button {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cozy-section {
+      padding: 100px 0 120px;
+    }
+
+    .cozy-section__content {
+      height: 490px;
+      background-image: url('{% if section.settings.section_image != blank %}{{ section.settings.section_image | image_url }}{% else %}{{ 'cozy-image.png' | asset_url }}{% endif %}');
+    }
+
+    .cozy-section__heading {
+      font-size: 52px;
+    }
+
+    .cozy-section__description {
+      font-size: 24px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Cozy Corner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build Your Cozy Corner"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Create a happy and comfortable space for your child with our thoughtfully designed furniture sets."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Find Your Perfect Set"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Section image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cozy Corner",
+      "category": "Little BoLiving"
+    }
+  ]
+}
+{% endschema %}

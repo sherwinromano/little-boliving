@@ -1,0 +1,455 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_section_VM8G7W": {
+      "type": "hero-section",
+      "name": "Hero Section",
+      "settings": {
+        "heading": "Safe, Playful Furniture for Growing Kids",
+        "description": "Beautifully crafted, child-safe furniture that supports play, learning, and everyday life, trusted by parents, loved by kids.",
+        "button_text": "Explore collection",
+        "button_url": "shopify://collections/play",
+        "hero_image": "shopify://shop_images/15_8ee73625-5595-43d4-8fd2-027e13fb2594.png"
+      }
+    },
+    "why_trust_us_naccKe": {
+      "type": "why-trust-us",
+      "blocks": {
+        "trust_card_Thpabh": {
+          "type": "trust_card",
+          "settings": {
+            "icon": "shopify://shop_images/layers-logo.svg",
+            "title": "Non-toxic materials"
+          }
+        },
+        "trust_card_P9WXVm": {
+          "type": "trust_card",
+          "settings": {
+            "icon": "shopify://shop_images/elements.svg",
+            "title": "Safety certificates"
+          }
+        },
+        "trust_card_yRAk9D": {
+          "type": "trust_card",
+          "settings": {
+            "icon": "shopify://shop_images/elements-shield.svg",
+            "title": "Child-safe edges"
+          }
+        }
+      },
+      "block_order": [
+        "trust_card_Thpabh",
+        "trust_card_P9WXVm",
+        "trust_card_yRAk9D"
+      ],
+      "name": "Why Parents Trust Us",
+      "settings": {
+        "heading": "Why Parents Trust Us",
+        "subheading": "We focus on quality, safety, and comfort to give parents confidence in every purchase."
+      }
+    },
+    "shop_by_age_fCH69X": {
+      "type": "shop-by-age",
+      "blocks": {
+        "age_card_fFhKRp": {
+          "type": "age_card",
+          "settings": {
+            "age_range": "0-2",
+            "subtitle": "Years",
+            "description": "Safe designs for growing kids.",
+            "button_url": "",
+            "button_text": "View All",
+            "card_bg_color": "#B8BDB3"
+          }
+        },
+        "age_card_JYaYQh": {
+          "type": "age_card",
+          "settings": {
+            "age_range": "3-5",
+            "subtitle": "Years",
+            "description": "For active play and creativity",
+            "button_url": "",
+            "button_text": "View All",
+            "card_bg_color": "#E5C7B3"
+          }
+        },
+        "age_card_XFc36H": {
+          "type": "age_card",
+          "settings": {
+            "age_range": "6-8",
+            "subtitle": "Years",
+            "description": "Study and play balance",
+            "button_url": "",
+            "button_text": "View All",
+            "card_bg_color": "#E5D5C8"
+          }
+        },
+        "age_card_KQMgnB": {
+          "type": "age_card",
+          "settings": {
+            "age_range": "9+",
+            "subtitle": "Years",
+            "description": "For growing independence",
+            "button_url": "",
+            "button_text": "View All",
+            "card_bg_color": "#B8BDB3"
+          }
+        }
+      },
+      "block_order": [
+        "age_card_fFhKRp",
+        "age_card_JYaYQh",
+        "age_card_XFc36H",
+        "age_card_KQMgnB"
+      ],
+      "disabled": true,
+      "name": "Shop by Age",
+      "settings": {
+        "heading": "Shop by Age",
+        "subheading": "Find the perfect furniture for every stage of your child's growth."
+      }
+    },
+    "shop_by_category_WbiJjd": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_tab_erTY6k": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Play",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/33.png",
+            "product_1_alt": "",
+            "product_1_url": "shopify://products/play-sofa-sage-green",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/SBN_LBL168064_copy_1_1.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/play",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/Little_Bo_Living.png",
+            "product_3_alt": "",
+            "product_3_url": "shopify://products/pink-foam-armchair",
+            "product_4": true,
+            "product_4_image": "shopify://shop_images/25.png",
+            "product_4_alt": "",
+            "product_4_url": "shopify://collections/play",
+            "product_5": true,
+            "product_5_image": "shopify://shop_images/11.png",
+            "product_5_alt": "",
+            "product_5_url": "shopify://products/green-foam-armchair"
+          }
+        },
+        "category_tab_kU7xrn": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Storage",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/storage_5.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/storage_3.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/storage_1.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all",
+            "product_4": true,
+            "product_4_image": "shopify://shop_images/storage_2.jpg",
+            "product_4_alt": "",
+            "product_4_url": "shopify://collections/all",
+            "product_5": true,
+            "product_5_image": "shopify://shop_images/storage_4.jpg",
+            "product_5_alt": "",
+            "product_5_url": "shopify://collections/all"
+          }
+        },
+        "category_tab_BU68aN": {
+          "type": "category_tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "Seating",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/Cars_Foam_Chairs_4.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/Frozen_Foam_Chairs_4.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/Cars_Foam_Chairs.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all",
+            "product_4": true,
+            "product_4_image": "shopify://shop_images/Frozen_Foam_Chairs.jpg",
+            "product_4_alt": "",
+            "product_4_url": "shopify://collections/all",
+            "product_5": true,
+            "product_5_image": "shopify://shop_images/Stitch_Foam_Chairs_2.jpg",
+            "product_5_alt": "",
+            "product_5_url": "shopify://collections/all"
+          }
+        },
+        "category_tab_xbMAqV": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Activity Table",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/table_1.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/table_5.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/table_3.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all",
+            "product_4": true,
+            "product_4_image": "shopify://shop_images/table_2.jpg",
+            "product_4_alt": "",
+            "product_4_url": "shopify://collections/all",
+            "product_5": true,
+            "product_5_image": "shopify://shop_images/table_4.jpg",
+            "product_5_alt": "",
+            "product_5_url": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "category_tab_erTY6k",
+        "category_tab_kU7xrn",
+        "category_tab_BU68aN",
+        "category_tab_xbMAqV"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "heading": "Shop by Category",
+        "subheading": "Find the perfect furniture for every stage of your child's growth.",
+        "button_text": "Explore collection",
+        "button_url": "shopify://collections/play"
+      }
+    },
+    "featured_collections_q6dTBx": {
+      "type": "featured-collections",
+      "blocks": {
+        "category_tab_fRDRzX": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Play",
+            "product_1": true,
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all"
+          }
+        },
+        "category_tab_RmqMEA": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Storage",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/813zXhLOFtL._AC_SL1500.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/81cuUV7KtiL._AC_SL1500.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/813zXhLOFtL._AC_SL1500.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all"
+          }
+        },
+        "category_tab_GhkiFf": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Seating",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/Cars_Foam_Chairs.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/Frozen_Foam_Chairs.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/Stitch_Foam_Chairs_2.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all"
+          }
+        },
+        "category_tab_N9pxcG": {
+          "type": "category_tab",
+          "settings": {
+            "tab_label": "Tables",
+            "product_1": true,
+            "product_1_image": "shopify://shop_images/71bll7mDUkL._AC_SL1500.jpg",
+            "product_1_alt": "",
+            "product_1_url": "shopify://collections/all",
+            "product_2": true,
+            "product_2_image": "shopify://shop_images/71bll7mDUkL._AC_SL1500.jpg",
+            "product_2_alt": "",
+            "product_2_url": "shopify://collections/all",
+            "product_3": true,
+            "product_3_image": "shopify://shop_images/71bll7mDUkL._AC_SL1500.jpg",
+            "product_3_alt": "",
+            "product_3_url": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "category_tab_fRDRzX",
+        "category_tab_RmqMEA",
+        "category_tab_GhkiFf",
+        "category_tab_N9pxcG"
+      ],
+      "disabled": true,
+      "name": "Featured Collections",
+      "settings": {
+        "heading": "Featured Collections",
+        "subheading": "Explore our most popular and carefully selected kids' furniture collections.",
+        "button_text": "Explore collection",
+        "button_url": "shopify://collections"
+      }
+    },
+    "real_homes_real_families_QbTC9W": {
+      "type": "real-homes-real-families",
+      "blocks": {
+        "testimonial_slide_MheWTe": {
+          "type": "testimonial_slide",
+          "settings": {
+            "name_top": "Anna Smith",
+            "rating_top": 5,
+            "testimonial_top": "Find the perfect furniture for every stage of your child's growth.",
+            "name_bottom": "Rey Smith",
+            "rating_bottom": 5,
+            "testimonial_bottom": "Find the perfect furniture for every stage of your child's growth."
+          }
+        },
+        "testimonial_slide_XDCjag": {
+          "type": "testimonial_slide",
+          "disabled": true,
+          "settings": {
+            "name_top": "Jane Doe",
+            "rating_top": 4,
+            "testimonial_top": "Sample text 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "name_bottom": "John Doe",
+            "rating_bottom": 3,
+            "testimonial_bottom": "Sample text 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_slide_MheWTe",
+        "testimonial_slide_XDCjag"
+      ],
+      "disabled": true,
+      "name": "Real Homes, Real Families",
+      "settings": {
+        "heading": "Real Homes, Real Families",
+        "subheading": "Discover honest reviews and real photos from families enjoying our furniture.",
+        "main_image": "shopify://shop_images/Cars_Foam_Chairs_4.jpg",
+        "secondary_image": "shopify://shop_images/Frozen_Foam_Chairs_4.jpg"
+      }
+    },
+    "craftsmanship_xdrx7B": {
+      "type": "craftsmanship",
+      "disabled": true,
+      "name": "Craftsmanship & Details",
+      "settings": {
+        "heading": "Craftsmanship & Details",
+        "subheading": "Our products are made with high-quality materials and careful attention to detail to ensure comfort, durability, and long-lasting performance. We use soft, safe, and reliable fabrics combined with strong stitching and premium finishing to deliver the best possible experience."
+      }
+    },
+    "inspiration_eT94dz": {
+      "type": "inspiration",
+      "blocks": {
+        "room_image_NFEzPp": {
+          "type": "room_image",
+          "settings": {
+            "alt_text": ""
+          }
+        },
+        "room_image_TnNNeH": {
+          "type": "room_image",
+          "settings": {
+            "image": "shopify://shop_images/Little_Bo_Living_7f949c49-5169-413f-9085-1258178040e5.png",
+            "alt_text": ""
+          }
+        },
+        "room_image_3de8yb": {
+          "type": "room_image",
+          "settings": {
+            "image": "shopify://shop_images/27.png",
+            "alt_text": ""
+          }
+        },
+        "room_image_EmDncW": {
+          "type": "room_image",
+          "settings": {
+            "image": "shopify://shop_images/21.png",
+            "alt_text": ""
+          }
+        },
+        "room_image_TUtNdA": {
+          "type": "room_image",
+          "settings": {
+            "image": "shopify://shop_images/39.png",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "room_image_NFEzPp",
+        "room_image_TnNNeH",
+        "room_image_3de8yb",
+        "room_image_EmDncW",
+        "room_image_TUtNdA"
+      ],
+      "name": "Inspiration & Room Ideas",
+      "settings": {
+        "heading": "Inspiration & Room Ideas",
+        "subheading": "Inspire, play, and grow! Explore fun, functional furniture and creative room ideas for every kid's space.",
+        "button_text": "",
+        "button_link": "/"
+      }
+    },
+    "cozy_corner_f7JAVN": {
+      "type": "cozy-corner",
+      "name": "Cozy Corner",
+      "settings": {
+        "heading": "Build Your Cozy Corner",
+        "description": "Create a happy and comfortable space for your child with our thoughtfully designed furniture sets.",
+        "button_text": "Find Your Perfect Set",
+        "button_url": "shopify://collections/play"
+      }
+    }
+  },
+  "order": [
+    "hero_section_VM8G7W",
+    "why_trust_us_naccKe",
+    "shop_by_age_fCH69X",
+    "shop_by_category_WbiJjd",
+    "featured_collections_q6dTBx",
+    "real_homes_real_families_QbTC9W",
+    "craftsmanship_xdrx7B",
+    "inspiration_eT94dz",
+    "cozy_corner_f7JAVN"
+  ]
+}
